@@ -1729,441 +1729,378 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_dup", 1);
                 ggml_compute_forward_dup(params, tensor);
                 trace_event("ggml_compute_forward_dup", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ADD:
             {
                 trace_event("ggml_compute_forward_add", 1);
                 ggml_compute_forward_add(params, tensor);
                 trace_event("ggml_compute_forward_add", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ADD1:
             {
                 trace_event("ggml_compute_forward_add1", 1);
                 ggml_compute_forward_add1(params, tensor);
                 trace_event("ggml_compute_forward_add1", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ACC:
             {
                 trace_event("ggml_compute_forward_acc", 1);
                 ggml_compute_forward_acc(params, tensor);
                 trace_event("ggml_compute_forward_acc", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SUB:
             {
                 trace_event("ggml_compute_forward_sub", 1);
                 ggml_compute_forward_sub(params, tensor);
                 trace_event("ggml_compute_forward_sub", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_MUL:
             {
                 trace_event("ggml_compute_forward_mul", 1);
                 ggml_compute_forward_mul(params, tensor);
                 trace_event("ggml_compute_forward_mul", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_DIV:
             {
                 trace_event("ggml_compute_forward_div", 1);
                 ggml_compute_forward_div(params, tensor);
                 trace_event("ggml_compute_forward_div", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SQR:
             {
                 trace_event("ggml_compute_forward_sqr", 1);
                 ggml_compute_forward_sqr(params, tensor);
                 trace_event("ggml_compute_forward_sqr", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SQRT:
             {
                 trace_event("ggml_compute_forward_sqrt", 1);
                 ggml_compute_forward_sqrt(params, tensor);
                 trace_event("ggml_compute_forward_sqrt", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_LOG:
             {
                 trace_event("ggml_compute_forward_log", 1);
                 ggml_compute_forward_log(params, tensor);
                 trace_event("ggml_compute_forward_log", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SIN:
             {
                 trace_event("ggml_compute_forward_sin", 1);
                 ggml_compute_forward_sin(params, tensor);
                 trace_event("ggml_compute_forward_sin", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_COS:
             {
                 trace_event("ggml_compute_forward_cos", 1);
                 ggml_compute_forward_cos(params, tensor);
                 trace_event("ggml_compute_forward_cos", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SUM:
             {
                 trace_event("ggml_compute_forward_sum", 1);
                 ggml_compute_forward_sum(params, tensor);
                 trace_event("ggml_compute_forward_sum", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SUM_ROWS:
             {
                 trace_event("ggml_compute_forward_sum_rows", 1);
                 ggml_compute_forward_sum_rows(params, tensor);
                 trace_event("ggml_compute_forward_sum_rows", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_MEAN:
             {
                 trace_event("ggml_compute_forward_mean", 1);
                 ggml_compute_forward_mean(params, tensor);
                 trace_event("ggml_compute_forward_mean", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ARGMAX:
             {
                 trace_event("ggml_compute_forward_argmax", 1);
                 ggml_compute_forward_argmax(params, tensor);
                 trace_event("ggml_compute_forward_argmax", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_COUNT_EQUAL:
             {
                 trace_event("ggml_compute_forward_count_equal", 1);
                 ggml_compute_forward_count_equal(params, tensor);
                 trace_event("ggml_compute_forward_count_equal", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_REPEAT:
             {
                 trace_event("ggml_compute_forward_repeat", 1);
                 ggml_compute_forward_repeat(params, tensor);
                 trace_event("ggml_compute_forward_repeat", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_REPEAT_BACK:
             {
                 trace_event("ggml_compute_forward_repeat_back", 1);
                 ggml_compute_forward_repeat_back(params, tensor);
                 trace_event("ggml_compute_forward_repeat_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CONCAT:
             {
                 trace_event("ggml_compute_forward_concat", 1);
                 ggml_compute_forward_concat(params, tensor);
                 trace_event("ggml_compute_forward_concat", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SILU_BACK:
             {
                 trace_event("ggml_compute_forward_silu_back", 1);
                 ggml_compute_forward_silu_back(params, tensor);
                 trace_event("ggml_compute_forward_silu_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_NORM:
             {
                 trace_event("ggml_compute_forward_norm", 1);
                 ggml_compute_forward_norm(params, tensor);
                 trace_event("ggml_compute_forward_norm", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_RMS_NORM:
             {
                 trace_event("ggml_compute_forward_rms_norm", 1);
                 ggml_compute_forward_rms_norm(params, tensor);
                 trace_event("ggml_compute_forward_rms_norm", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_RMS_NORM_BACK:
             {
                 trace_event("ggml_compute_forward_rms_norm_back", 1);
                 ggml_compute_forward_rms_norm_back(params, tensor);
                 trace_event("ggml_compute_forward_rms_norm_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_GROUP_NORM:
             {
                 trace_event("ggml_compute_forward_group_norm", 1);
                 ggml_compute_forward_group_norm(params, tensor);
                 trace_event("ggml_compute_forward_group_norm", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_L2_NORM:
             {
                 trace_event("ggml_compute_forward_l2_norm", 1);
                 ggml_compute_forward_l2_norm(params, tensor);
                 trace_event("ggml_compute_forward_l2_norm", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_MUL_MAT:
             {
                 trace_event("ggml_compute_forward_mul_mat", 1);
                 ggml_compute_forward_mul_mat(params, tensor);
                 trace_event("ggml_compute_forward_mul_mat", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_MUL_MAT_ID:
             {
                 trace_event("ggml_compute_forward_mul_mat_id", 1);
                 ggml_compute_forward_mul_mat_id(params, tensor);
                 trace_event("ggml_compute_forward_mul_mat_id", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_OUT_PROD:
             {
                 trace_event("ggml_compute_forward_out_prod", 1);
                 ggml_compute_forward_out_prod(params, tensor);
                 trace_event("ggml_compute_forward_out_prod", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SCALE:
             {
                 trace_event("ggml_compute_forward_scale", 1);
                 ggml_compute_forward_scale(params, tensor);
                 trace_event("ggml_compute_forward_scale", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SET:
             {
                 trace_event("ggml_compute_forward_set", 1);
                 ggml_compute_forward_set(params, tensor);
                 trace_event("ggml_compute_forward_set", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CPY:
             {
                 trace_event("ggml_compute_forward_cpy", 1);
                 ggml_compute_forward_cpy(params, tensor);
                 trace_event("ggml_compute_forward_cpy", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CONT:
             {
                 trace_event("ggml_compute_forward_cont", 1);
                 ggml_compute_forward_cont(params, tensor);
                 trace_event("ggml_compute_forward_cont", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_RESHAPE:
             {
                 trace_event("ggml_compute_forward_reshape", 1);
                 ggml_compute_forward_reshape(params, tensor);
                 trace_event("ggml_compute_forward_reshape", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_VIEW:
             {
                 trace_event("ggml_compute_forward_view", 1);
                 ggml_compute_forward_view(params, tensor);
                 trace_event("ggml_compute_forward_view", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_PERMUTE:
             {
                 trace_event("ggml_compute_forward_permute", 1);
                 ggml_compute_forward_permute(params, tensor);
                 trace_event("ggml_compute_forward_permute", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_TRANSPOSE:
             {
                 trace_event("ggml_compute_forward_transpose", 1);
                 ggml_compute_forward_transpose(params, tensor);
                 trace_event("ggml_compute_forward_transpose", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_GET_ROWS:
             {
                 trace_event("ggml_compute_forward_get_rows", 1);
                 ggml_compute_forward_get_rows(params, tensor);
                 trace_event("ggml_compute_forward_get_rows", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_GET_ROWS_BACK:
             {
                 trace_event("ggml_compute_forward_get_rows_back", 1);
                 ggml_compute_forward_get_rows_back(params, tensor);
                 trace_event("ggml_compute_forward_get_rows_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_DIAG:
             {
                 trace_event("ggml_compute_forward_diag", 1);
                 ggml_compute_forward_diag(params, tensor);
                 trace_event("ggml_compute_forward_diag", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_DIAG_MASK_INF:
             {
                 trace_event("ggml_compute_forward_diag_mask_inf", 1);
                 ggml_compute_forward_diag_mask_inf(params, tensor);
                 trace_event("ggml_compute_forward_diag_mask_inf", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_DIAG_MASK_ZERO:
             {
                 trace_event("ggml_compute_forward_diag_mask_zero", 1);
                 ggml_compute_forward_diag_mask_zero(params, tensor);
                 trace_event("ggml_compute_forward_diag_mask_zero", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SOFT_MAX:
             {
                 trace_event("ggml_compute_forward_soft_max", 1);
                 ggml_compute_forward_soft_max(params, tensor);
                 trace_event("ggml_compute_forward_soft_max", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SOFT_MAX_BACK:
             {
                 trace_event("ggml_compute_forward_soft_max_ext_back", 1);
                 ggml_compute_forward_soft_max_ext_back(params, tensor);
                 trace_event("ggml_compute_forward_soft_max_ext_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ROPE:
             {
                 trace_event("ggml_compute_forward_rope", 1);
                 ggml_compute_forward_rope(params, tensor);
                 trace_event("ggml_compute_forward_rope", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ROPE_BACK:
             {
                 trace_event("ggml_compute_forward_rope_back", 1);
                 ggml_compute_forward_rope_back(params, tensor);
                 trace_event("ggml_compute_forward_rope_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CLAMP:
             {
                 trace_event("ggml_compute_forward_clamp", 1);
                 ggml_compute_forward_clamp(params, tensor);
                 trace_event("ggml_compute_forward_clamp", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CONV_TRANSPOSE_1D:
             {
                 trace_event("ggml_compute_forward_conv_transpose_1d", 1);
                 ggml_compute_forward_conv_transpose_1d(params, tensor);
                 trace_event("ggml_compute_forward_conv_transpose_1d", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_IM2COL:
             {
                 trace_event("ggml_compute_forward_im2col", 1);
                 ggml_compute_forward_im2col(params, tensor);
                 trace_event("ggml_compute_forward_im2col", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_IM2COL_BACK:
             {
                 trace_event("ggml_compute_forward_im2col_back_f32", 1);
                 ggml_compute_forward_im2col_back_f32(params, tensor);
                 trace_event("ggml_compute_forward_im2col_back_f32", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CONV_2D_DW:
             {
                 trace_event("ggml_compute_forward_conv_2d_dw", 1);
                 ggml_compute_forward_conv_2d_dw(params, tensor);
                 trace_event("ggml_compute_forward_conv_2d_dw", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_CONV_TRANSPOSE_2D:
             {
                 trace_event("ggml_compute_forward_conv_transpose_2d", 1);
                 ggml_compute_forward_conv_transpose_2d(params, tensor);
                 trace_event("ggml_compute_forward_conv_transpose_2d", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_POOL_1D:
             {
                 trace_event("ggml_compute_forward_pool_1d", 1);
                 ggml_compute_forward_pool_1d(params, tensor);
                 trace_event("ggml_compute_forward_pool_1d", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_POOL_2D:
             {
                 trace_event("ggml_compute_forward_pool_2d", 1);
                 ggml_compute_forward_pool_2d(params, tensor);
                 trace_event("ggml_compute_forward_pool_2d", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_POOL_2D_BACK:
             {
                 trace_event("ggml_compute_forward_pool_2d_back", 1);
                 ggml_compute_forward_pool_2d_back(params, tensor);
                 trace_event("ggml_compute_forward_pool_2d_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_UPSCALE:
             {
                 trace_event("ggml_compute_forward_upscale", 1);
                 ggml_compute_forward_upscale(params, tensor);
                 trace_event("ggml_compute_forward_upscale", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_PAD:
             {
                 trace_event("ggml_compute_forward_pad", 1);
                 ggml_compute_forward_pad(params, tensor);
                 trace_event("ggml_compute_forward_pad", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_PAD_REFLECT_1D:
             {
                 trace_event("ggml_compute_forward_pad_reflect_1d", 1);
                 ggml_compute_forward_pad_reflect_1d(params, tensor);
                 trace_event("ggml_compute_forward_pad_reflect_1d", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ARANGE:
             {
                 trace_event("ggml_compute_forward_arange", 1);
                 ggml_compute_forward_arange(params, tensor);
                 trace_event("ggml_compute_forward_arange", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_TIMESTEP_EMBEDDING:
             {
                 trace_event("ggml_compute_forward_timestep_embedding", 1);
                 ggml_compute_forward_timestep_embedding(params, tensor);
                 trace_event("ggml_compute_forward_timestep_embedding", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ARGSORT:
             {
                 trace_event("ggml_compute_forward_argsort", 1);
                 ggml_compute_forward_argsort(params, tensor);
                 trace_event("ggml_compute_forward_argsort", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_LEAKY_RELU:
             {
                 trace_event("ggml_compute_forward_leaky_relu", 1);
                 ggml_compute_forward_leaky_relu(params, tensor);
                 trace_event("ggml_compute_forward_leaky_relu", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_FLASH_ATTN_EXT:
             {
                 trace_event("ggml_compute_forward_flash_attn_ext", 1);
                 ggml_compute_forward_flash_attn_ext(params, tensor->src[0], tensor->src[1], tensor->src[2], tensor->src[3], tensor);
                 trace_event("ggml_compute_forward_flash_attn_ext", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_FLASH_ATTN_BACK:
             {
@@ -2173,84 +2110,72 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 bool masked = t != 0;
                 ggml_compute_forward_flash_attn_back(params, masked, tensor);
                 trace_event("ggml_compute_forward_flash_attn_back", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SSM_CONV:
             {
                 trace_event("ggml_compute_forward_ssm_conv", 1);
                 ggml_compute_forward_ssm_conv(params, tensor);
                 trace_event("ggml_compute_forward_ssm_conv", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_SSM_SCAN:
             {
                 trace_event("ggml_compute_forward_ssm_scan", 1);
                 ggml_compute_forward_ssm_scan(params, tensor);
                 trace_event("ggml_compute_forward_ssm_scan", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_WIN_PART:
             {
                 trace_event("ggml_compute_forward_win_part", 1);
                 ggml_compute_forward_win_part(params, tensor);
                 trace_event("ggml_compute_forward_win_part", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_WIN_UNPART:
             {
                 trace_event("ggml_compute_forward_win_unpart", 1);
                 ggml_compute_forward_win_unpart(params, tensor);
                 trace_event("ggml_compute_forward_win_unpart", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_UNARY:
             {
                 trace_event("ggml_compute_forward_unary", 1);
                 ggml_compute_forward_unary(params, tensor);
                 trace_event("ggml_compute_forward_unary", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_GET_REL_POS:
             {
                 trace_event("ggml_compute_forward_get_rel_pos", 1);
                 ggml_compute_forward_get_rel_pos(params, tensor);
                 trace_event("ggml_compute_forward_get_rel_pos", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_ADD_REL_POS:
             {
                 trace_event("ggml_compute_forward_add_rel_pos", 1);
                 ggml_compute_forward_add_rel_pos(params, tensor);
                 trace_event("ggml_compute_forward_add_rel_pos", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_RWKV_WKV6:
             {
                 trace_event("ggml_compute_forward_rwkv_wkv6", 1);
                 ggml_compute_forward_rwkv_wkv6(params, tensor);
                 trace_event("ggml_compute_forward_rwkv_wkv6", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_GATED_LINEAR_ATTN:
             {
                 trace_event("ggml_compute_forward_gla", 1);
                 ggml_compute_forward_gla(params, tensor);
                 trace_event("ggml_compute_forward_gla", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_RWKV_WKV7:
             {
                 trace_event("ggml_compute_forward_rwkv_wkv7", 1);
                 ggml_compute_forward_rwkv_wkv7(params, tensor);
                 trace_event("ggml_compute_forward_rwkv_wkv7", 0);
-                trace_flush_thread();
             } break;
         case GGML_OP_MAP_CUSTOM1:
             {
                 trace_event("ggml_compute_forward_map_custom1", 1);
                 ggml_compute_forward_map_custom1(params, tensor);
                 trace_event("ggml_compute_forward_map_custom1", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_MAP_CUSTOM2:
@@ -2258,7 +2183,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_map_custom2", 1);
                 ggml_compute_forward_map_custom2(params, tensor);
                 trace_event("ggml_compute_forward_map_custom2", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_MAP_CUSTOM3:
@@ -2266,7 +2190,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_map_custom3", 1);
                 ggml_compute_forward_map_custom3(params, tensor);
                 trace_event("ggml_compute_forward_map_custom3", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_CUSTOM:
@@ -2274,7 +2197,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_custom", 1);
                 ggml_compute_forward_custom(params, tensor);
                 trace_event("ggml_compute_forward_custom", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_CROSS_ENTROPY_LOSS:
@@ -2282,7 +2204,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_cross_entropy_loss", 1);
                 ggml_compute_forward_cross_entropy_loss(params, tensor);
                 trace_event("ggml_compute_forward_cross_entropy_loss", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_CROSS_ENTROPY_LOSS_BACK:
@@ -2290,7 +2211,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_cross_entropy_loss_back", 1);
                 ggml_compute_forward_cross_entropy_loss_back(params, tensor);
                 trace_event("ggml_compute_forward_cross_entropy_loss_back", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_OPT_STEP_ADAMW:
@@ -2298,7 +2218,6 @@ static void ggml_compute_forward(struct ggml_compute_params * params, struct ggm
                 trace_event("ggml_compute_forward_opt_step_adamw", 1);
                 ggml_compute_forward_opt_step_adamw(params, tensor);
                 trace_event("ggml_compute_forward_opt_step_adamw", 0);
-                trace_flush_thread();
             }
             break;
         case GGML_OP_NONE:
@@ -3068,6 +2987,7 @@ struct ggml_cplan ggml_graph_plan(
 }
 
 static thread_ret_t ggml_graph_compute_thread(void * data) {
+    trace_event("ggml_graph_compute_thread", 1);
     struct ggml_compute_state * state = (struct ggml_compute_state *) data;
     struct ggml_threadpool    * tp    = state->threadpool;
 
@@ -3102,6 +3022,8 @@ static thread_ret_t ggml_graph_compute_thread(void * data) {
 
     ggml_barrier(state->threadpool);
 
+    trace_event("ggml_graph_compute_thread", 0);
+    trace_flush_thread();
     return 0;
 }
 
@@ -3324,6 +3246,7 @@ struct ggml_threadpool * ggml_threadpool_new(struct ggml_threadpool_params * tpp
 }
 
 enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cplan * cplan) {
+    trace_event("ggml_graph_compute", 1);
     ggml_cpu_init();
 
     GGML_ASSERT(cplan);
@@ -3390,6 +3313,7 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
         ggml_threadpool_free(threadpool);
     }
 
+    trace_event("ggml_graph_compute", 0);
     return ret;
 }
 
