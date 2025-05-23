@@ -4,6 +4,8 @@
 #include <string.h>
 #include <time.h>
 #include <pthread.h>
+#include <unistd.h>
+#include <sys/syscall.h>
 
 #define EVENT_NAME_MAX_LEN 64
 #define INITIAL_CAPACITY 1024
@@ -13,6 +15,7 @@ typedef struct {
     char ph; // 'B' or 'E'
     char name[EVENT_NAME_MAX_LEN];
     long long ts;
+    int tid;
 } TraceEvent;
 
 typedef struct {
@@ -35,6 +38,17 @@ static EventBuffer buffer = {NULL, 0, 0, PTHREAD_MUTEX_INITIALIZER};
 static pthread_key_t tls_key;
 static pthread_once_t tls_once = PTHREAD_ONCE_INIT;
 
+// === Helper ===
+static int get_tid() {
+#ifdef __linux__
+    return (int)syscall(SYS_gettid);
+#elif defined(__APPLE__)
+    return pthread_mach_thread_np(pthread_self());
+#else
+    return (int)(uintptr_t)pthread_self();
+#endif
+}
+
 // === Buffer Management ===
 static void buffer_init(EventBuffer* buf) {
     buf->capacity = INITIAL_CAPACITY;
@@ -47,9 +61,9 @@ static void buffer_init(EventBuffer* buf) {
     pthread_mutex_init(&buf->lock, NULL);
 }
 
-static void buffer_append(EventBuffer* buf, const char* name, char ph, long long ts) {
+static void buffer_append(EventBuffer* buf, const TraceEvent* src) {
     if (buf->size >= buf->capacity) {
-        size_t new_capacity = buf->capacity + buf->capacity / 2; // 1.5x
+        size_t new_capacity = buf->capacity * 2;
         TraceEvent* new_events = (TraceEvent*)realloc(buf->events, new_capacity * sizeof(TraceEvent));
         if (!new_events) {
             fprintf(stderr, "realloc failed\n");
@@ -59,12 +73,7 @@ static void buffer_append(EventBuffer* buf, const char* name, char ph, long long
         buf->capacity = new_capacity;
     }
 
-    TraceEvent* ev = &buf->events[buf->size++];
-    ev->ph = ph;
-    size_t len = strnlen(name, EVENT_NAME_MAX_LEN - 1);
-    memcpy(ev->name, name, len);
-    ev->name[len] = '\0';
-    ev->ts = ts;
+    buf->events[buf->size++] = *src;
 }
 
 static void buffer_free(EventBuffer* buf) {
@@ -86,8 +95,7 @@ static void tls_destructor(void* ptr) {
 
     pthread_mutex_lock(&buffer.lock);
     for (size_t i = 0; i < tls->size; i++) {
-        TraceEvent* ev = &tls->events[i];
-        buffer_append(&buffer, ev->name, ev->ph, ev->ts);
+        buffer_append(&buffer, &tls->events[i]);
     }
     pthread_mutex_unlock(&buffer.lock);
 
@@ -142,6 +150,7 @@ static void buffer_append_tls(const char* name, char ph, long long ts) {
     memcpy(ev->name, name, len);
     ev->name[len] = '\0';
     ev->ts = ts;
+    ev->tid = get_tid();
 }
 
 // === Public API ===
@@ -179,8 +188,7 @@ void trace_flush_thread() {
 
     pthread_mutex_lock(&buffer.lock);
     for (size_t i = 0; i < tls->size; i++) {
-        TraceEvent* ev = &tls->events[i];
-        buffer_append(&buffer, ev->name, ev->ph, ev->ts);
+        buffer_append(&buffer, &tls->events[i]);
     }
     pthread_mutex_unlock(&buffer.lock);
 
@@ -196,8 +204,8 @@ void trace_finalize() {
     for (size_t i = 0; i < buffer.size; i++) {
         TraceEvent* ev = &buffer.events[i];
         fprintf(trace_file,
-                "{\"cat\":\"trace\",\"ph\":\"%c\",\"name\":\"%s\",\"ts\":%lld,\"pid\":0,\"tid\":0}",
-                ev->ph, ev->name, ev->ts);
+                "{\"cat\":\"trace\",\"ph\":\"%c\",\"name\":\"%s\",\"ts\":%lld,\"pid\":0,\"tid\":%d}",
+                ev->ph, ev->name, ev->ts, ev->tid);
         if (i + 1 < buffer.size)
             fputs(",\n", trace_file);
         else
