@@ -7716,59 +7716,87 @@ void ggml_compute_forward_unary(
     switch (op) {
         case GGML_UNARY_OP_ABS:
             {
+                trace_event("ggml_compute_forward_abs", 1);
                 ggml_compute_forward_abs(params, dst);
+                trace_event("ggml_compute_forward_abs", 0);
             } break;
         case GGML_UNARY_OP_SGN:
             {
+                trace_event("ggml_compute_forward_sgn", 1);
                 ggml_compute_forward_sgn(params, dst);
+                trace_event("ggml_compute_forward_sgn", 0);
             } break;
         case GGML_UNARY_OP_NEG:
             {
+                trace_event("ggml_compute_forward_neg", 1);
                 ggml_compute_forward_neg(params, dst);
+                trace_event("ggml_compute_forward_neg", 0);
             } break;
         case GGML_UNARY_OP_STEP:
             {
+                trace_event("ggml_compute_forward_step", 1);
                 ggml_compute_forward_step(params, dst);
+                trace_event("ggml_compute_forward_step", 0);
             } break;
         case GGML_UNARY_OP_TANH:
             {
+                trace_event("ggml_compute_forward_tanh", 1);
                 ggml_compute_forward_tanh(params, dst);
+                trace_event("ggml_compute_forward_tanh", 0);
             } break;
         case GGML_UNARY_OP_ELU:
             {
+                trace_event("ggml_compute_forward_elu", 1);
                 ggml_compute_forward_elu(params, dst);
+                trace_event("ggml_compute_forward_elu", 0);
             } break;
         case GGML_UNARY_OP_RELU:
             {
+                trace_event("ggml_compute_forward_relu", 1);
                 ggml_compute_forward_relu(params, dst);
+                trace_event("ggml_compute_forward_relu", 0);
             } break;
         case GGML_UNARY_OP_SIGMOID:
             {
+                trace_event("ggml_compute_forward_sigmoid", 1);
                 ggml_compute_forward_sigmoid(params, dst);
+                trace_event("ggml_compute_forward_sigmoid", 0);
             } break;
         case GGML_UNARY_OP_GELU:
             {
+                trace_event("ggml_compute_forward_gelu", 1);
                 ggml_compute_forward_gelu(params, dst);
+                trace_event("ggml_compute_forward_gelu", 0);
             } break;
         case GGML_UNARY_OP_GELU_QUICK:
             {
+                trace_event("ggml_compute_forward_gelu_quick", 1);
                 ggml_compute_forward_gelu_quick(params, dst);
+                trace_event("ggml_compute_forward_gelu_quick", 0);
             } break;
         case GGML_UNARY_OP_SILU:
             {
+                trace_event("ggml_compute_forward_silu", 1);
                 ggml_compute_forward_silu(params, dst);
+                trace_event("ggml_compute_forward_silu", 0);
             } break;
         case GGML_UNARY_OP_HARDSWISH:
             {
+                trace_event("ggml_compute_forward_hardswish", 1);
                 ggml_compute_forward_hardswish(params, dst);
+                trace_event("ggml_compute_forward_hardswish", 0);
             } break;
         case GGML_UNARY_OP_HARDSIGMOID:
             {
+                trace_event("ggml_compute_forward_hardsigmoid", 1);
                 ggml_compute_forward_hardsigmoid(params, dst);
+                trace_event("ggml_compute_forward_hardsigmoid", 0);
             } break;
         case GGML_UNARY_OP_EXP:
             {
+                trace_event("ggml_compute_forward_exp", 1);
                 ggml_compute_forward_exp(params, dst);
+                trace_event("ggml_compute_forward_exp", 0);
             } break;
         default:
             {
