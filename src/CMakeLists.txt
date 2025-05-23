@@ -111,8 +111,8 @@ set_target_properties(whisper PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION ${SOVERSION}
 )
-
-target_include_directories(whisper PUBLIC . ../include)
+include_directories(../ggml/include)
+target_include_directories(whisper PUBLIC . ../include ../ggml/include ../ggml/src/ggml-cpu ../ggml/src)
 target_compile_features   (whisper PUBLIC cxx_std_11) # don't bump
 
 if (CMAKE_CXX_BYTE_ORDER STREQUAL "BIG_ENDIAN")
@@ -123,18 +123,18 @@ if (WHISPER_EXTRA_FLAGS)
     target_compile_options(whisper PRIVATE ${WHISPER_EXTRA_FLAGS})
 endif()
 
-target_link_libraries(whisper PUBLIC ggml)
+target_link_libraries(whisper PUBLIC ggml ggml-base)
 
 if (WHISPER_COREML)
-    target_link_libraries(whisper PRIVATE whisper.coreml)
+    target_link_libraries(whisper PUBLIC whisper.coreml ggml ggml-base)
 endif()
 
 if (WHISPER_OPENVINO)
-    target_link_libraries(whisper PRIVATE whisper.openvino)
+    target_link_libraries(whisper PUBLIC whisper.openvino  ggml ggml-base)
 endif()
 
 if (WHISPER_MKL)
-    target_link_libraries(whisper PRIVATE MKL::MKL)
+    target_link_libraries(whisper PUBLIC MKL::MKL ggml ggml-base)
 endif()
 
 if (BUILD_SHARED_LIBS)

@@ -5,6 +5,7 @@
 #include "ggml-cpp.h"
 #include "ggml-alloc.h"
 #include "ggml-backend.h"
+#include "ggml-trace.h"
 
 #ifdef WHISPER_USE_COREML
 #include "coreml/whisper-encoder.h"
@@ -112,7 +113,9 @@ static void byteswap_tensor(ggml_tensor * tensor) {
 //
 // logging
 //
-
+extern void trace_init(char const*);
+// extern void trace_flush_thread();
+extern void trace_finalize();
 WHISPER_ATTRIBUTE_FORMAT(2, 3)
 static void whisper_log_internal        (ggml_log_level level, const char * format, ...);
 static void whisper_log_callback_default(ggml_log_level level, const char * text, void * user_data);
@@ -6407,7 +6410,11 @@ int whisper_full_parallel(
         int n_samples,
         int n_processors) {
     if (n_processors == 1) {
-        return whisper_full(ctx, params, samples, n_samples);
+        trace_init("trace.json");
+        int res= whisper_full(ctx, params, samples, n_samples);
+        // trace_flush_thread();
+        trace_finalize();  
+        return res;
     }
     int ret = 0;
 

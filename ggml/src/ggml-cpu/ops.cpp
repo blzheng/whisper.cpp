@@ -4,6 +4,7 @@
 #include "ggml-impl.h"
 #include "binary-ops.h"
 #include "unary-ops.h"
+#include "ggml-trace.h"
 #include "vec.h"
 
 #include <float.h>

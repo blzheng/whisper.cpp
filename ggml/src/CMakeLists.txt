@@ -193,6 +193,7 @@ add_library(ggml-base
             ../include/ggml-cpp.h
             ../include/ggml-opt.h
             ../include/gguf.h
+            ggml-trace.h
             ggml.c
             ggml-alloc.c
             ggml-backend.cpp
@@ -201,6 +202,7 @@ add_library(ggml-base
             ggml-threading.h
             ggml-quants.c
             ggml-quants.h
+            ggml-trace.c
             gguf.cpp)
 
 target_include_directories(ggml-base PRIVATE .)
