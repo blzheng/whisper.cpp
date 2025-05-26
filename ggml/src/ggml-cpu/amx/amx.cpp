@@ -5,6 +5,7 @@
 #include "ggml-backend.h"
 #include "ggml-impl.h"
 #include "ggml-cpu.h"
+#include "ggml-trace.h"
 #include "ggml-cpu-traits.h"
 
 #if defined(__gnu_linux__)
@@ -28,7 +29,9 @@ class tensor_traits : public ggml::cpu::tensor_traits {
 
     bool compute_forward(struct ggml_compute_params * params, struct ggml_tensor * op) override {
         if (op->op == GGML_OP_MUL_MAT) {
+            trace_event("ggml_backend_amx_mul_mat", 1);
             ggml_backend_amx_mul_mat(params, op);
+            trace_event("ggml_backend_amx_mul_mat", 0);
             return true;
         }
         return false;
